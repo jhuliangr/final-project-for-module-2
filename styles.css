@@ -149,6 +149,15 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+  width: 80%;
+  margin-inline: auto;
+}
+
 /* ==========================================
    LAYOUT UTILITIES
    ========================================== */
@@ -362,26 +371,42 @@ main {
 
 .feature-card p {
   color: var(--color-text-light);
+} /* ==========================================
+   Images Gallery SECTION
+   ========================================== */
+.images-gallery {
+  text-align: center;
+  padding-block: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
+.images-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+.picture {
+  width: 70vw;
+  height: 40vw;
+  object-fit: cover;
+  border-radius: 50px;
+  margin-inline: auto;
+  opacity: 70%;
+}
 /* ==========================================
    FAQs SECTION
    ========================================== */
 .faq {
+  background-color: var(--color-surface);
   text-align: center;
-  padding-top: 20px;
+  padding-block: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.faq-title {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-bottom: 40px;
-  width: 80%;
-  margin-inline: auto;
-}
+
 .faq-element {
   border-width: 20px;
   border: solid;
@@ -409,7 +434,6 @@ main {
   color: var(--color-primary);
 }
 .answer {
-  padding: 5px;
   display: none;
   transition: all 0.3s ease-in-out;
   transform-origin: top;
@@ -441,6 +465,7 @@ main {
   border-radius: 10px;
   border-color: var(--color-primary);
   box-shadow: none;
+  margin-bottom: 20px;
 }
 /* ==========================================
    FOOTER
@@ -484,6 +509,18 @@ main {
 @media (min-width: 48em) {
   .features-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .images-container {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  }
+  .picture {
+    width: 25vw;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-inline: auto;
+    opacity: 70%;
   }
 
   .site-footer .container {

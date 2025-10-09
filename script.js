@@ -71,6 +71,19 @@
   //==========================================================================================
   // handmade JS:
   //==========================================================================================
+  const pictures = [
+    "https://img.freepik.com/foto-gratis/estilo-vintage-playa-paraiso-tropical_53876-14481.jpg",
+    "https://img.freepik.com/foto-gratis/fondo-vintage-diseno-nube-grunge_1048-4187.jpg",
+    "https://img.freepik.com/foto-gratis/fondo-estilo-grunge-nubes-cielo_1048-2903.jpg",
+    "https://img.freepik.com/foto-gratis/detallado-fondo-textura-estilo-grunge_1048-6236.jpg",
+    "https://img.freepik.com/foto-gratis/hermoso-fondo-cobre-oxidado-verdigris_24837-103.jpg",
+    "https://img.freepik.com/foto-gratis/musica-antigua_1048-3366.jpg",
+  ];
+  document.getElementById("images-container").innerHTML = pictures.map(
+    (p, i) => {
+      return `<img src="${p}" alt="picture_${i}" class="picture">`
+    }
+  ).join("");
 
   const FAQsArray = [1, 2, 3, 4, 5, 6];
   document.getElementById("faqs").innerHTML = FAQsArray.map((i) => {
@@ -91,19 +104,23 @@
         </p>
     </div>`;
   }).join("");
+
   FAQsArray.map((i) => {
     document.getElementById(`plus-${i}`).addEventListener("click", function () {
       let visibility = document.getElementById(`faq-${i}`).style.display;
+      const faqElement = document.getElementById(`faq-${i}`);
+      const plusElement = document.getElementById(`plus-${i}`);
+
       if (visibility && visibility === "block") {
-        document.getElementById(`faq-${i}`).classList.remove("expanded");
-        document.getElementById(`faq-${i}`).classList.add("collapsed");
-        document.getElementById(`faq-${i}`).style.display = "none";
-        document.getElementById(`plus-${i}`).textContent = "+";
+        faqElement.classList.remove("expanded");
+        faqElement.classList.add("collapsed");
+        faqElement.style.display = "none";
+        plusElement.textContent = "+";
       } else {
-        document.getElementById(`faq-${i}`).classList.add("expanded");
-        document.getElementById(`faq-${i}`).classList.remove("collapsed");
-        document.getElementById(`faq-${i}`).style.display = "block";
-        document.getElementById(`plus-${i}`).textContent = "-";
+        faqElement.classList.add("expanded");
+        faqElement.classList.remove("collapsed");
+        faqElement.style.display = "block";
+        plusElement.textContent = "-";
       }
     });
   });
