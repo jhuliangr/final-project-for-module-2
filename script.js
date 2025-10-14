@@ -79,11 +79,11 @@
     "https://img.freepik.com/foto-gratis/hermoso-fondo-cobre-oxidado-verdigris_24837-103.jpg",
     "https://img.freepik.com/foto-gratis/musica-antigua_1048-3366.jpg",
   ];
-  document.getElementById("images-container").innerHTML = pictures.map(
-    (p, i) => {
-      return `<img src="${p}" alt="picture_${i}" class="picture">`
-    }
-  ).join("");
+  document.getElementById("images-container").innerHTML = pictures
+    .map((p, i) => {
+      return `<img src="${p}" alt="picture_${i}" class="picture">`;
+    })
+    .join("");
 
   const FAQsArray = [1, 2, 3, 4, 5, 6];
   document.getElementById("faqs").innerHTML = FAQsArray.map((i) => {
@@ -124,4 +124,51 @@
       }
     });
   });
+  // for the cards
+  const observerCallback = function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer = new IntersectionObserver(observerCallback, {
+    threshold: 0.3,
+  });
+
+  const elements = document.querySelectorAll(".feature-card");
+  elements.forEach((el) => observer.observe(el));
+
+  // For the pictures
+  const observerCallback1 = function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in-picture");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer1 = new IntersectionObserver(observerCallback1, {
+    threshold: 0.3,
+  });
+
+  const elements1 = document.querySelectorAll(".picture");
+  elements1.forEach((el) => observer1.observe(el));
+
+  // for the FAQs
+  const observerCallback2 = function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in-faq");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer2 = new IntersectionObserver(observerCallback2, {
+    threshold: 0.3,
+  });
+
+  const elements2 = document.querySelectorAll(".faq-element");
+  elements2.forEach((el) => observer2.observe(el));
 })();
