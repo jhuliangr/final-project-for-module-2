@@ -376,10 +376,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transition: transform 0.5s ease-in;
-
+  transition: all 0.5s ease-in;
+  transform: translateY(40px);
   opacity: 0;
-  transform: translateY(20px);
 }
 .feature-card:nth-child(2) {
   transition-delay: 0.1s;
@@ -427,6 +426,7 @@ main {
   object-fit: cover;
   border-radius: 50px;
   margin-inline: auto;
+  opacity: 0%;
 }
 .picture.animate-in-picture {
   animation: pulse 1.4s ease-in-out 1 forwards;
@@ -647,7 +647,6 @@ main {
     object-fit: cover;
     border-radius: 50px;
     margin-inline: auto;
-    opacity: 0%;
   }
 
   .site-footer .container {
@@ -655,6 +654,7 @@ main {
     justify-content: space-between;
   }
   .feature-card {
+    opacity: 0;
     transform: translateX(80px);
   }
   .feature-card.animate-in {
