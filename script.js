@@ -171,4 +171,33 @@
 
   const elements2 = document.querySelectorAll(".faq-element");
   elements2.forEach((el) => observer2.observe(el));
+
+  const observerCallback3 = function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer3 = new IntersectionObserver(observerCallback3, {
+    threshold: 0.3,
+  });
+
+  const elements3 = document.querySelectorAll(".appear");
+  elements3.forEach((el) => observer3.observe(el));
+
+  const observerCallback4 = function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+  const observer4 = new IntersectionObserver(observerCallback4, {
+    threshold: 0.3,
+  });
+  const element4 = document.querySelectorAll("#picture");
+  element4.forEach((el) => observer4.observe(el));
 })();
