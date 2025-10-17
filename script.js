@@ -81,7 +81,7 @@
   ];
   document.getElementById("images-container").innerHTML = pictures
     .map((p, i) => {
-      return `<img src="${p}" alt="picture_${i}" class="picture">`;
+      return `<img src="${p}" alt="picture_${i}" class="picture" loading="lazy">`;
     })
     .join("");
 

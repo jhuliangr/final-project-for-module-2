@@ -369,8 +369,6 @@ main {
 .features {
   padding-block: var(--space-xl);
   background-color: var(--color-surface);
-
-  /* background-color: red; */
 }
 
 .features h3 {
